@@ -1,6 +1,6 @@
 # Real-Time Chat
 
-![Chat in Action](https://github.com/davidkelley/real-time-chat/raw/master/src/images/1.gif "Chat in Action")
+![Chat in Action](https://github.com/davidkelley/real-time-chat/blob/master/images/1.gif?raw=true "Chat in Action")
 
 "Ferret Chat" is a real-time chat project that takes advantage of MQTT over Websockets through AWS IoT. It uses restricted permission credentials to establish a connection over a signed URL (SigV4), using [Paho](https://github.com/eclipse/paho.mqtt.javascript) as the client.
 
