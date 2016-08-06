@@ -1,0 +1,63 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+
+  "Description" : "Creates a User and IOT Setup",
+
+  "Parameters" : {
+
+  },
+
+  "Resources": {
+
+    "User" : {
+      "Type": "AWS::IAM::User",
+      "Properties": {
+        "Policies": [
+          {
+            "PolicyName": "access-to-iot-through-websocket",
+            "PolicyDocument" : {
+              "Version": "2012-10-17",
+              "Statement": [{
+                "Effect": "Allow",
+                "Resource": "*",
+                "Action": [
+                  "iot:Connect",
+                  "iot:Publish",
+                  "iot:Subscribe",
+                  "iot:Receive"
+                ]
+              }]
+            }
+          }
+        ]
+      }
+    },
+
+    "AccessKey" : {
+      "Type" : "AWS::IAM::AccessKey",
+      "Properties" : {
+        "Status" : "Active",
+        "UserName" : { "Ref" : "User" }
+      }
+    },
+
+    "Thing" : {
+     "Type": "AWS::IoT::Thing"
+    }
+
+  },
+
+  "Outputs" : {
+
+    "Key" : {
+      "Description" : "The Access Key ID",
+      "Value" : { "Ref" : "AccessKey" }
+    },
+
+    "Secret" : {
+      "Description" : "The Secret Access Key",
+      "Value" : { "Fn::GetAtt" : ["AccessKey", "SecretAccessKey"] }
+    }
+
+  }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ferret Real Time Chat</title>
+    <meta name="description" content="Real time chat using MQTT over Websockets">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/hmac-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/sha256-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+  </head>
+  <body style="padding: 10px">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="row">
+
+      <div class="col-md-4">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form connect-form>
+              <div class="form-group">
+                <label for="iot">IoT Endpoint</label>
+                <input type="text" class="form-control" id="iot" name="iot" value="adeogd9dmsj5z.iot.us-east-1.amazonaws.com" placeholder="xxxxxx.iot.us-east-1.amazonaws.com"/>
+              </div>
+              <div class="form-group">
+                <label for="id">Access Key ID:</label>
+                <input type="password" class="form-control" id="id" name="id" value="AKIAI6BKON3SOVLBQ2DA" placeholder="XXXXXXXXXXXXX"/>
+              </div>
+              <div class="form-group">
+                <label for="secret">Secret Access Key:</label>
+                <input type="password" class="form-control" id="secret" name="secret" value="t5wMTwHSxvgYiy10oLdyMHkUw4y6w4RcT2YRj3z/" placeholder="XXXXXXXXXXXXX"/>
+              </div>
+              <button type="submit" class="btn btn-default">Connect</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div chat-body></div>
+            <form chat-form>
+              <div class="row">
+                <div class="col-xs-10">
+                  <input type="text" class="form-control" id="chat" name="chat" placeholder="Type to Chat"/>
+                </div>
+                <div class="col-xs-2">
+                  <button type="submit" class="btn btn-block btn-default">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.0.0.min.js"><\/script>')</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
